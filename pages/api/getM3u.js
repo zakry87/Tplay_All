@@ -69,7 +69,7 @@ const getUserChanDetails = async (userChannels) => {
                         id: channel.id,
                         name: channel.name,
                         tvg_id: channel.tvg_id,
-                        genres: channel.category,
+                        group_title: channel.genres‎,
                         tvg_logo: channel.logo_url,
                         stream_url: channel.manifest_url,
                         license_url: channel.license_url,
@@ -118,7 +118,7 @@ const generateM3u = async (ud) => {
 
             for (let i = 0; i < chansList.length; i++) {
                 m3uStr += '#EXTINF:-1 tvg-id="' + chansList[i].id.toString() + '" ';
-                m3uStr += 'group-title="' + chansList[i].genres‎ + '", tvg-logo="' + chansList[i].tvg_logo + '", ' + chansList[i].name + '\n';
+                m3uStr += 'group-title="' + chansList[i].group_title + '", tvg-logo="' + chansList[i].tvg_logo + '", ' + chansList[i].name + '\n';
                 m3uStr += '#KODIPROP:inputstream.adaptive.license_type=clearkey\n';
                 m3uStr += '#KODIPROP:inputstream.adaptive.license_key=' + chansList[i].clearkey + '\n';
                 m3uStr += '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36\n';
