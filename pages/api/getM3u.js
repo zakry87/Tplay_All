@@ -69,7 +69,7 @@ const getUserChanDetails = async (userChannels) => {
                         id: channel.id,
                         name: channel.name,
                         tvg_id: channel.tvg_id,
-                        group_title: channel.genres‎,
+                        group_title: channel.group_title,
                         tvg_logo: channel.logo_url,
                         stream_url: channel.manifest_url,
                         license_url: channel.license_url,
