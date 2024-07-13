@@ -49,7 +49,7 @@ const getUserChanDetails = async (userChannels) => {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        hmacValue = data.data.hmac.hdnea.value;
+        hmacValue = data.data.hmac.hdntl.value;
     } catch (error) {
         console.error('Error fetching and rearranging HMAC data:', error);
         obj.err = error;
@@ -120,6 +120,7 @@ const generateM3u = async (ud) => {
                 m3uStr += '#EXTINF:-1 tvg-id="' + chansList[i].id.toString() + '" ';
                 m3uStr += 'group-title="' + chansList[i].group_title + '", tvg-logo="' + chansList[i].tvg_logo + '", ' + chansList[i].name + '\n';
                 m3uStr += '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36\n';
+                m3uStr += '#EXTHTTP:{"cookie":"+ chansList[i].hma"\n';
                 m3uStr += '#KODIPROP:inputstream.adaptive.license_type=clearkey\n';
                 m3uStr += '#KODIPROP:inputstream.adaptive.license_key=' + chansList[i].clearkey + '\n';
                 m3uStr += chansList[i].stream_url + '?' + chansList[i].hma + '\n\n';
